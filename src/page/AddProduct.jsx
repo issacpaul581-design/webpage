@@ -14,6 +14,7 @@ function AddProduct() {
   const [saving, setSaving] = useState(false)
 
   const handleSubmit = async (event) => {
+  
     event.preventDefault()
 
     if (!title || !price || !category || !imageFile) {
