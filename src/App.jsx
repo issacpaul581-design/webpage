@@ -14,7 +14,7 @@ function App() {
     // Show loading screen for 4 seconds on app startup
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 4000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
