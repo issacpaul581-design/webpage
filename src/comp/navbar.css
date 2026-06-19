@@ -2,31 +2,102 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #074b29 0%, #10b981 100%);
-  color: white;
-  padding: 15px 50px;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  padding: 18px 60px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #E0E0E0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   list-style: none;
 }
 
 .nav-links li {
   cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1a1a1a;
+  transition: width 0.3s ease;
 }
 
 .nav-links li:hover {
-  color: #ddd;
+  color: #666666;
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.nav-links li:active {
+  transform: scale(0.95);
 }
 
 .cart {
   font-size: 18px;
   cursor: pointer;
+  padding: 8px 16px;
+  background: rgba(133, 57, 83, 0.1);
+  border: 1px solid rgba(133, 57, 83, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+}
+
+.cart:hover {
+  background: rgba(133, 57, 83, 0.2);
+  border-color: #853953;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(133, 57, 83, 0.3);
+}
+
+.cart:active {
+  transform: translateY(0);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1e293b;
 }

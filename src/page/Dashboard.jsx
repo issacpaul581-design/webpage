@@ -2,11 +2,22 @@ import { useEffect, useState } from "react"
 import Navbar from "../comp/Navbar"
 import Footer from "../comp/Footer"
 import Card from "../comp/Card"
+import LoadingScreen from "../comp/LoadingScreen"
 
 function Dashboard() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [pageLoading, setPageLoading] = useState(true)
   const [error, setError] = useState("")
+
+  useEffect(() => {
+    // Show loading screen for 4 seconds when entering page
+    const pageLoadTimer = setTimeout(() => {
+      setPageLoading(false)
+    }, 4000)
+
+    return () => clearTimeout(pageLoadTimer)
+  }, [])
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,19 +50,28 @@ function Dashboard() {
       }
     }
 
-    fetchProducts()
-  }, [])
+    if (!pageLoading) {
+      fetchProducts()
+    }
+  }, [pageLoading])
+
+  if (pageLoading) {
+    return <LoadingScreen />
+  }
 
   return (
     <div>
       <Navbar />
       <main
         style={{
-          display: "flex",
-          gap: "20px",
-          flexWrap: "wrap",
-          padding: "20px",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          gap: "30px",
+          padding: "50px 40px",
           minHeight: "calc(100vh - 160px)",
+          maxWidth: "1400px",
+          margin: "0 auto",
+          width: "100%",
         }}
       >
         {loading ? (
@@ -64,6 +84,7 @@ function Dashboard() {
           products.map((product) => (
             <Card
               key={product.id || product._id || product.title}
+              id={product.id || product._id}
               image={product.image || product.img || "https://via.placeholder.com/250x220"}
               title={product.title || product.name || "Unnamed Product"}
               price={product.price || "0"}

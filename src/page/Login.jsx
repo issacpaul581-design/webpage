@@ -39,7 +39,7 @@ const handleLogin = async () => {
                 localStorage.setItem("token", data.token)
             }
 
-            navigate("/Dashboard")
+            setTimeout(() => navigate("/Dashboard"), 4000)
         } else {
             setMessage(data.message || "❌ Login Failed")
         }
