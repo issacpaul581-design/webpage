@@ -4,9 +4,9 @@
   align-items: center;
   background: #FFFFFF;
   color: #1a1a1a;
-  padding: 18px 60px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid #E0E0E0;
+  padding: 16px 80px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #F0F0F0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -18,25 +18,31 @@
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 26px;
+  font-weight: 900;
   color: #1a1a1a;
   letter-spacing: -0.5px;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: #555555;
 }
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   list-style: none;
 }
 
 .nav-links li {
   cursor: pointer;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   transition: all 0.3s ease;
   position: relative;
   padding: 8px 0;
+  color: #555555;
 }
 
 .nav-links li::after {
@@ -51,7 +57,7 @@
 }
 
 .nav-links li:hover {
-  color: #666666;
+  color: #1a1a1a;
 }
 
 .nav-links li:hover::after {
