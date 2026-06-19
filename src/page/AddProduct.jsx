@@ -130,5 +130,4 @@ function AddProduct() {
     </div>
   )
 }
-
 export default AddProduct
