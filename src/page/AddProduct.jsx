@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import "./AddProduct.css"
+import "./addProduct.css"
 
 function AddProduct() {
   const navigate = useNavigate()
